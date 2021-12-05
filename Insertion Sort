@@ -1,0 +1,23 @@
+#include<stdio.h>
+int main()
+{
+    int i,t,j,k;
+    scanf("%d",&t);
+    for(k=0;k<t;k++)
+    {
+        int n,c=0;
+        scanf("%d",&n);
+        long int a[n];
+        for(i=0;i<n;i++)
+        scanf("%ld",&a[i]);
+        long int ele;
+        for(i=1;i<n;i++)
+        {
+            ele=a[i];
+            for(j=i-1;((a[j]>ele)&&(j>=0));j--,c++)
+                a[j+1]=a[j];
+            a[j+1]=ele;
+        }
+        printf("%d\n",c);
+    }
+}
