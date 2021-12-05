@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include<stdlib.h>
+struct name{
+char ar[30];
+int a;
+};
+int main()
+{
+    int n,k,i,j,t;
+    scanf("%d",&n);
+    scanf("%d",&t);
+    struct name p[n]; struct name l;
+    for(i=0;i<n;i++)
+    {
+        scanf("%s",&p[i].ar);
+        scanf("%d",&p[i].a);
+    }
+    for(i=0;i<n;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(p[j].a>p[i].a)
+            {
+                l=p[j];
+                p[j]=p[i];
+                p[i]=l;
+            }
+            if((p[j].a==p[i].a))
+            {
+                k=strcmp(p[j].ar,p[i].ar);
+                if(k<0)
+                {
+                    l=p[j];
+                    p[j]=p[i];
+                    p[i]=l;
+                }
+            }
+        }
+    }
+    for(i=0;i<2;i++)
+    {
+        printf("%s\n",p[i].ar);
+    }
+       
+}
+
