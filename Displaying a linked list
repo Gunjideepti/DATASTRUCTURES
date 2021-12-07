@@ -1,0 +1,29 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int data;
+    struct node*link;
+};
+int main()
+{
+    int d,a;
+    printf("enter data");
+    scanf("%d",&d);
+    printf("enter data");
+    scanf("%d",&a);
+    struct node*head=malloc(sizeof(struct node));
+    head->data=d;
+    head->link=NULL;
+    struct node*ptr=malloc(sizeof(struct node));
+    ptr->data =a;
+    ptr->link=NULL;
+    head->link=ptr;
+    ptr=head;
+    while(ptr!=NULL)
+    {
+        printf("%d\n",ptr->data);
+        ptr=ptr->link;
+    }
+    
+}
