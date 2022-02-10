@@ -1,0 +1,95 @@
+#include<stdio.h>
+#include<stdlib.h>
+int a[20];
+int f=-1;
+int r=-1;
+int isEmpty()
+{
+    if(f==-1&&r==-1)
+     return 1;
+    else 
+    return 0;
+    
+}
+int isFull()
+{
+    if(r==20-1||f>r)
+     return 1;
+    else
+      return 0;
+    
+}
+void insert(int e)
+{
+    int t;
+    t=isFull();
+    if(t==1)
+    {
+        printf("Queue is full");
+    }
+    if(f==-1)
+    {
+        f++;
+        r++;
+        a[f]=e;
+    }
+    else
+    {
+        r++;
+        a[r]=e;
+    }
+}
+int delete()
+{
+    int t;
+    t=isEmpty();
+    if(t==1)
+    {
+        printf("Queueis empty");
+    }
+    else
+    {
+        int k=a[f++];
+        return k;
+    }
+}
+void display()
+{
+    int i;
+    for(i=f;i<=r;i++)
+    {
+        printf("%d\n",a[i]);
+    }
+}
+int main()
+{
+    int n,e,k;
+    while(1)
+    {
+        
+         printf("1.insert\n 2.Delete\n3.display\n4.exit\n");
+         printf("enter an option");
+         scanf("%d",&n);
+    
+        switch(n)
+        {
+            case 1:
+                    printf("enter an element to be inserted");
+                    scanf("%d",&e);
+                    insert(e);
+                    break;
+            case 2:  k=delete();
+                    printf("the deleted element is %d",k);
+                    break;
+            case 3:display();
+                    break;
+            case 4:  exit(0);
+             
+            default:printf("enter correct choice");
+                     break;
+        }
+    }
+    return 0;
+    
+}
+
