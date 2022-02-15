@@ -1,0 +1,72 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int data;
+    struct node*next;
+};
+struct node*f=NULL;
+struct node*r=NULL;
+void create()
+{
+    int data;
+    struct node*newnode=malloc(sizeof(struct node));
+    printf("enter data");
+    scanf("%d",&data);
+    newnode->data=data;
+    newnode->next=NULL;
+    if(f==NULL)
+    {
+        f=newnode;
+        r=newnode;
+    }
+    r->next=newnode;
+    r=newnode;
+   
+}
+void delete()
+{
+    if(f==NULL)
+    {
+        printf("queue is empty");
+    }
+    int t;
+    t=f->data;
+    printf("the deleted element is %d",t);
+    f=f->next;
+}
+void print()
+{
+    struct node*temp=f;
+    while(temp!=NULL)
+    {
+        printf("%d\n",temp->data);
+        temp=temp->next;
+    }
+}
+int main()
+{
+    int ch;
+   
+    while(1)
+    {
+        printf("1.create\n 2.delete\n 3.print\n 4.exit\n");
+        printf("enter your choice");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            case 1:
+                 create();
+                 break;
+            case 2:
+                 delete();
+                 break;
+            case 3:print();
+                   break;
+            case 4: exit(0);
+            default:printf("enter corect choice");
+                    break;
+        }
+    }
+    return 0;
+}
